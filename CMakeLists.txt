@@ -41,7 +41,7 @@ endforeach(OUTPUTCONFIG CMAKE_CONFIGURATION_TYPES)
 
 IF (UNIX)
     # add some standard warnings
-    ADD_DEFINITIONS(-Wno-variadic-macros -Wno-long-long -Wall -Wextra -Winit-self -Woverloaded-virtual -Wsign-promo -Wno-unused-parameter -pedantic -Woverloaded-virtual -Wno-unknown-pragmas)
+    ADD_DEFINITIONS(-Wno-variadic-macros -Wno-narrowing -Wno-long-long -Wall -Wextra -Winit-self -Woverloaded-virtual -Wsign-promo -Wno-unused-parameter -pedantic -Woverloaded-virtual -Wno-unknown-pragmas)
 
     # -ansi does not compile with sjn module
     #ADD_DEFINITIONS(-ansi)
