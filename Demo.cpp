@@ -51,17 +51,18 @@ int main(int argc, char **argv)
 
     // bgs->process(...) internally process and show the foreground mask image
     cv::Mat img_mask;
+    cv::Mat img_mask_alt;
     cv::Mat gray;
-//    bgs->process(img_input, img_mask);
+    bgs->process(img_input, img_mask);
+
     cv::cvtColor(img_input, gray, cv::COLOR_BGR2GRAY);
-    cv::imshow("gray", gray);
-    pBgSub->apply(gray, img_mask);
-    cv::imshow("bgs", img_mask);
+    pBgSub->apply(gray, img_mask_alt);
+    cv::imshow("alt", img_mask_alt);
     
     if(!img_mask.empty())
     {
       // Perform blob tracking
-//      blobTracking->process(img_input, img_mask, img_blob);
+      blobTracking->process(img_input, img_mask, img_blob);
 
       // Perform vehicle counting
 //      vehicleCouting->setInput(img_blob);

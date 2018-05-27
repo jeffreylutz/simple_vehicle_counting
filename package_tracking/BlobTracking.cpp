@@ -39,7 +39,8 @@ void BlobTracking::process(const cv::Mat &img_input, const cv::Mat &img_mask, cv
   IplImage* labelImg = cvCreateImage(cvGetSize(frame), IPL_DEPTH_LABEL, 1);
 
   cvb::CvBlobs blobs;
-  unsigned int result = cvb::cvLabel(segmentated, labelImg, blobs);
+  unsigned int result = 0;
+  //result = cvb::cvLabel(segmentated, labelImg, blobs);
   
   //cvb::cvFilterByArea(blobs, 500, 1000000);
   cvb::cvFilterByArea(blobs, minArea, maxArea);
