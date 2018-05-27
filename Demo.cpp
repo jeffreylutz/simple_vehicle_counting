@@ -26,7 +26,7 @@ int main(int argc, char **argv)
   bgs = new PixelBasedAdaptiveSegmenter;
 
   cv::Ptr<cv::BackgroundSubtractor> pBgSub; 
-  int fps = 15;
+  int fps = 25;
   pBgSub = cv::bgsubcnt::createBackgroundSubtractorCNT(fps, true, fps*60);
   
   /* Blob Tracking Algorithm */
@@ -54,7 +54,9 @@ int main(int argc, char **argv)
     cv::Mat gray;
 //    bgs->process(img_input, img_mask);
     cv::cvtColor(img_input, gray, cv::COLOR_BGR2GRAY);
+    cv::imshow("gray", gray);
     pBgSub->apply(gray, img_mask);
+    cv::imshow("bgs", img_mask);
     
     if(!img_mask.empty())
     {
