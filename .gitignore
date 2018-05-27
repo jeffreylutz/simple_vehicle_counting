@@ -18,3 +18,5 @@ cmake-build-debug/
 cmake_install.cmake
 simple_vehicle_counting
 pbcvt.cbp
+hi
+*.swp

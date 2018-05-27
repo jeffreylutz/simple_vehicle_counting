@@ -62,6 +62,8 @@ endif ()
 
 file(GLOB demo Demo.cpp)
 
+file(GLOB_RECURSE back_src package_BackgroundSubtractorCNT/*.cpp package_BackgroundSubtractorCNT/*.c)
+file(GLOB_RECURSE back_inc package_BackgroundSubtractorCNT/*.h)
 file(GLOB_RECURSE bgs_src package_bgs/*.cpp package_bgs/*.c)
 file(GLOB_RECURSE bgs_inc package_bgs/*.h)
 file(GLOB_RECURSE tracking_src package_tracking/*.cpp package_tracking/*.c)
@@ -71,7 +73,7 @@ file(GLOB_RECURSE analysis_inc package_analysis/*.h)
 
 include_directories(${CMAKE_SOURCE_DIR})
 
-add_library(simple_vehicle_counting STATIC ${bgs_src} ${tracking_src} ${analysis_src})
+add_library(simple_vehicle_counting STATIC ${back_src} ${bgs_src} ${tracking_src} ${analysis_src})
 target_link_libraries(simple_vehicle_counting ${OpenCV_LIBS})
 set_property(TARGET simple_vehicle_counting PROPERTY PUBLIC_HEADER ${bgs_inc} ${tracking_inc} ${analysis_inc})
 if(WIN32)
